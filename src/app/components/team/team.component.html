@@ -1,0 +1,70 @@
+<div>
+    <h2>{{ team().name }}</h2>
+    <div>
+        Cambios disponibles: {{ 3 - team().substitutions }}
+        <div>
+            <button (click)="startChange()" [hidden]="!allowChanges">
+                Realizar cambios
+            </button>
+            <div *ngIf="showInFieldList && match?.isSecondHalf">
+                <h3>Selecciona el jugador a retirar</h3>
+                <ul>
+                    <li *ngFor="let player of team().onField;" (click)="selectPlayerOut(player)">
+                        <button *ngIf="player.id !== team().goalkeeper?.id">{{ player.name }}</button>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="showBenchList && match?.isSecondHalf">
+                <h3>Selecciona el jugador a ingresar</h3>
+                <ul>
+                    <li *ngFor="let player of team().onBench;" (click)="selectPlayerIn(player)">
+                        <button>{{ player.name }}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            Portero: {{ team().goalkeeper?.name }} <br>
+            <button nz-button nzDanger (click)="createComponentModal(team())" [hidden]="goalkeeperSelected">
+                Cambiar Portero
+            </button>
+            <div *ngIf="showPlayerList && !goalkeeperSelected">
+                <h3>Selecciona un nuevo portero</h3>
+                <ul>
+                    <li *ngFor="let player of team().onField.concat(team().onBench);"
+                        (click)="changeGoalkeeper(player)">
+                        @if(player.id != team().goalkeeper?.id){
+                        <button>{{ player.name }}</button>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h3>Plantilla principal del {{ team().name }}</h3>
+        <ul>
+            <li *ngFor="let player of team().onField;">
+                <span>
+                    {{ player.name }},
+                    {{ player.position }}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div>
+        @if (team().name === 'Manchester City') {
+            <button nz-flex nzVertical="true" nzJustify="center" nzAlign="center" nzGap="smaller" nz-button nzType="primary" (click)="showDrawer(team())" class="mancity">
+                <img src="https://c2.staticflickr.com/6/5707/23952823171_73403942b8_o.png" alt="logo-mancity" style="width: 25px;">
+                Ver banca
+            </button>
+        }
+
+        @else {
+            <button nz-flex nzVertical="true" nzJustify="center" nzAlign="center" nzGap="smaller" nz-button nzType="primary" nzDanger (click)="showDrawer(team())" class="manutd">
+                <img src="https://th.bing.com/th/id/R.74293494f57dc27f68ae316142cc5bfb?rik=zeTpMWrEOALJMA&pid=ImgRaw&r=0" alt="logo-manutd" style="width: 25px;">
+                Ver banca
+            </button>
+        }
+    </div>
+</div>
+
+<nz-form-control style="display: none;"/>

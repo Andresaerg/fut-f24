@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+}
+
+.teams {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.field {
+    background-image: url('https://th.bing.com/th/id/R.23d6461653d7088a3539df8cbae26bff?rik=FRona%2fxSPWsckA&riu=http%3a%2f%2fvignette3.wikia.nocookie.net%2ffifa-ultimate-team%2fimages%2fc%2fc4%2fCampo-de-futbol.jpeg%2frevision%2flatest%3fcb%3d20131222122232%26path-prefix%3des&ehk=KLmkkPH008rGSntKsvKM8tPEqREoJS3EWRoFTmqQxY8%3d&risl=&pid=ImgRaw&r=0');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    filter: blur(5px);
+    position: absolute;
+}
+
+.field img{
+    position: absolute;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.matchStats{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}

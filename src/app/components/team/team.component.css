@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+.mancity{
+    position: fixed;
+    left: 0;
+    bottom: 50%;
+    transform: translateY(50%);
+    height: fit-content;
+}
+
+.manutd{
+    position: fixed;
+    right: 0;
+    bottom: 50%;
+    transform: translateY(50%);
+    height: fit-content;
+}

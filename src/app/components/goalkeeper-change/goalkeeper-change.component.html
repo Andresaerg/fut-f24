@@ -1,0 +1,8 @@
+<h1>Selecciona un jugador para sustituir a {{ nzData.team.goalkeeper?.name }}</h1>
+<ul>
+    <li *ngFor="let player of nzData.team.onField.concat(nzData.team.onBench)">
+        <button *ngIf="player.id !== nzData.team.goalkeeper?.id" (click)="changeGoalkeeper(player)">
+            {{ player.name }} - {{ player.position }}
+        </button>
+    </li>
+</ul>

@@ -1,0 +1,18 @@
+<h3>Jugadores en banca del {{ nzData.team.name }}</h3>
+<ul>
+    <li *ngFor="let player of nzData.team.onBench">
+        <span>
+            {{ player.name }} -
+            {{ player.position }}
+        </span>
+    </li>
+</ul>
+<div nz-flex nzJustify="center">
+    @if (nzData.team.name === 'Manchester City') {
+        <img src="https://c2.staticflickr.com/6/5707/23952823171_73403942b8_o.png" alt="logo-mancity" style="width: 250px;">
+    }
+    
+    @else {
+        <img src="https://th.bing.com/th/id/R.74293494f57dc27f68ae316142cc5bfb?rik=zeTpMWrEOALJMA&pid=ImgRaw&r=0" alt="logo-manutd" style="width: 250px;">
+    }
+</div>
